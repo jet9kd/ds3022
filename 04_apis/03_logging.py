@@ -16,6 +16,8 @@ try:
   response.raise_for_status()
   data = response.json()
 
+  #print(json.dumps(data, indent=2))
+
   for item in data:
     print(item["repo"]["name"], " - ", item["type"])
 
@@ -24,3 +26,4 @@ try:
 except httpx.HTTPError as e:
   print(e)
   logging.error(f"Error fetching events for {USER}: {e}")
+
